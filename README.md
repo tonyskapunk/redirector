@@ -1,2 +1,2 @@
-# redirect
-HTTP redirect
+# redirector
+HTTP redirect to HTTPS
