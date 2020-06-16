@@ -20,10 +20,8 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 func main() {
 	listenPort := ":8080"
 	lp := os.Getenv("LISTEN_PORT")
-	if lp != "" {
-		if _, err := strconv.Atoi(lp); err == nil {
-			listenPort = ":" + lp
-		}
+	if _, err := strconv.Atoi(lp); err == nil {
+		listenPort = ":" + lp
 	}
 	http.HandleFunc("/", redirect)
 	log.Fatal(http.ListenAndServe(listenPort, nil))
