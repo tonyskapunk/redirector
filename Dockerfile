@@ -1,8 +1,8 @@
 FROM golang:latest AS builder
+RUN go get -d -v github.com/tonyskapunk/redirector
 WORKDIR /go/src/github.com/tonyskapunk/redirector/
 COPY redirector.go .
-RUN go get -d -v . \
-  && GOOS=linux go build -a -o redirector .
+RUN GOOS=linux go build -a -o redirector .
 
 FROM alpine:latest
 WORKDIR /root/
