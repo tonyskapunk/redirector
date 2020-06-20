@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"log"
@@ -17,12 +17,13 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusMovedPermanently)
 }
 
-func main() {
+func Run() {
 	listenPort := ":8080"
 	lp := os.Getenv("LISTEN_PORT")
 	if _, err := strconv.Atoi(lp); err == nil {
 		listenPort = ":" + lp
 	}
 	http.HandleFunc("/", redirect)
+	log.Printf("Listening on 0.0.0.0%v\n", listenPort)
 	log.Fatal(http.ListenAndServe(listenPort, nil))
 }
