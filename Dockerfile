@@ -1,10 +1,14 @@
 FROM golang:latest AS builder
-RUN go get -d -v github.com/tonyskapunk/redirector
 WORKDIR /go/src/github.com/tonyskapunk/redirector/
 COPY redirector.go .
-RUN GOOS=linux go build -a -o redirector .
+RUN GOOS=linux CGO_ENABLED=0 go build -a -o redirector .
 
 FROM alpine:latest
-WORKDIR /root/
+RUN addgroup -S app \
+    && adduser -S -g app app \
+    && apk add --no-cache ca-certificates
+WORKDIR /app
 COPY --from=builder /go/src/github.com/tonyskapunk/redirector/redirector .
+RUN chown -R app:app ./
+USER app
 CMD ["./redirector"]
