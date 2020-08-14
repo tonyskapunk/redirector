@@ -16,3 +16,8 @@ or
 docker run -p 8080:8080 quay.io/tonyskapunk/redirector
 ```
 
+or
+
+```bash
+docker run -p 8080:8080 docker.pkg.github.com/tonyskapunk/redirector/redirector:latest
+```
