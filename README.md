@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/tonyskapunk/redirector/status "Docker Repository on Quay")](https://quay.io/repository/tonyskapunk/redirector)
+
 # redirector
 
 HTTP redirect to HTTPS
