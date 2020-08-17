@@ -19,7 +19,6 @@ jobs:
     - name: Build quay image
       run: |
         docker build .
-        --file Dockerfile
         --tag ${REGISTRY}/${{ github.repository }}
            
     - name: Log into registry
