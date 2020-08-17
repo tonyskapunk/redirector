@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build quay image
       run: |
-        docker build .
+        docker build . \
         --tag ${REGISTRY}/${{ github.repository }}
            
     - name: Log into registry
