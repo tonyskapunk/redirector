@@ -20,14 +20,14 @@ jobs:
       run: |
         docker build .
         --file Dockerfile
-        --tag ${REGISTRY}/${{ github.actor }}/${{ github.repository }}
+        --tag ${REGISTRY}/${{ github.repository }}
            
     - name: Log into registry
       run: echo "${{ secrets.QUAY_TOKEN }}" | docker login ${REGISTRY} -u ${{ secrets.QUAY_USER }} --password-stdin
 
     - name: Push image
       run: |
-        IMAGE_ID=${REGISTRY}/${{ github.actor }}}/${{ github.repository }}
+        IMAGE_ID=${REGISTRY}/${{ github.repository }}
         # Change all uppercase to lowercase
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
         # Strip git ref prefix from version
