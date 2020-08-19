@@ -3,7 +3,7 @@
 [![Go Version](https://img.shields.io/github/go-mod/go-version/tonyskapunk/redirector?style=plastic)](https://github.com/tonyskapunk/redirector/)
 ![Docker](https://github.com/tonyskapunk/redirector/workflows/Docker/badge.svg)
 ![Go](https://github.com/tonyskapunk/redirector/workflows/Go/badge.svg)
-
+[![Go Report Card](https://goreportcard.com/badge/tonyskapunk/redirector)](https://goreportcard.com/report/github.com/tonyskapunk/redirector)
 
 # redirector
 
